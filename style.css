@@ -1,0 +1,27 @@
+.main {
+    display: grid;
+    height: 100vh;
+    border: 1px solid black;
+    grid-template-rows: 50px 1fr;
+}
+
+.top-sidebar {
+    display: flex;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.main-sidebar {
+    display: grid;
+    border: 1px solid black;
+    grid-template-columns: 50px 1fr 50px;
+}
+.left-sidebar {
+    border: 1px solid black;
+}
+.menu {
+    border: 1px solid black;
+}
+.right-sidebar {
+    border: 1px solid black;
+}
