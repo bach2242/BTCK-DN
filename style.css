@@ -9,7 +9,7 @@ body {
 .main {
     display: grid;
     height: 100vh;
-    border: 0.5px solid #27272F;
+    border: 0.1px solid #27272F;
     grid-template-rows: 44px 1fr;
     /* background-color: #08090B; */
 }
@@ -17,33 +17,33 @@ body {
 .top-sidebar {
     display: flex;
     height: 44px;
-    border: 0.5px solid #27272F;
+    border: 0.1px solid #27272F;
     background-color: #08090B;
 }
 
 .main-sidebar {
     display: grid;
-    border: 0.5px solid #27272F;
+    border: 0.1px solid #27272F;
     grid-template-columns: 270px 1fr 350px;
 }
 .left-sidebar {
     display: flex;
     flex-direction: column;
     
-    border: 0.5px solid #27272F;
+    /*border: 0.1px solid #27272F;*/
     background-color: #0C0D10;
 }
 .menu {
-    border: 0.5px solid #27272F;
+    border-left: 0.1px solid #27272F;
     background-color: #0F1014;
 }
 .right-sidebar {
-    border: 0.5px solid #27272F;
+    border-left: 0.1px solid #27272F;
     background-color: #13141A;
 }
 
 .content {
-    border: 0.5px solid blue;
+    /*border: 0.2px solid blue;*/
 }
 #content1, #content3, #content4 {
     flex-shrink: 0;
@@ -64,9 +64,19 @@ body {
     display: flex;
     padding: 8px 0 8px 13px;
     cursor: pointer; /*đổi con trỏ khi chạm vào content*/
+    border-left: 1px solid transparent; /*tạo một đường viền trong suốt để tránh việc layout bị thay đổi khi hover*/
+    transition: all 0.3s ease;
 }
 .content-views:hover {
     background-color: #27272F;
+    border-left: 2px solid #2DD4BF;
+}
+.content-views .active {
+    background-color: #27272F;
+    border-left: 2px solid #2DD4BF;
+}
+.content-views:hover p {
+    color: #D4D4D8;
 }
 .content-views p {
     margin: 0;
@@ -93,6 +103,8 @@ body {
     display: flex;
     padding: 8px 0px 8px 13px;
     cursor: pointer; /*đổi con trỏ khi chạm vào content*/
+    border-left: 2px solid transparent;
+    transition: all 0.3s ease;
 }
 .content-projects p {
     margin: 0;
@@ -103,6 +115,14 @@ body {
 }
 .content-projects:hover {
     background-color: #27272F;
+    border-left: 2px solid #2DD4BF;
+}
+.content-projects:hover p {
+    color: #D4D4D8;
+}
+.content-projects .active {
+    background-color: #27272F;
+    border-left: 2px solid #2DD4BF;
 }
 .new-content2 {
     margin-top: auto;
@@ -111,12 +131,35 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #3F3F46;
     cursor: pointer;
+    border-left: 2px solid transparent;
+    transition: all 0.3s ease;
 }
 .new-content2:hover {
     background-color: #27272F;
+    border-left: 2px solid #2DD4BF;
+    color: #D4D4D8;
 }
 #content3 {
-    height: 150px;
+    /*height: 150px;*/
+    display: flex;
+    flex-direction: column;
+}
+.list-content3 {
+    display: flex;
+    flex-wrap: wrap;/*cho pheps cac the tag tu dong xuong dong khi het cho ngang*/
+    gap: 8px;
+    padding: 8px 13px 16px 13px;
+}
+.tag {
+    border: 1px solid #3F3F46;
+    padding:  2px 8px;
+    font-size: 12px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #3F3F46;
+    cursor: pointer;
+}
+.tag:hover {
+    background-color: #2DD4BF;
 }
 #content4 {
     height: 120px;
@@ -127,7 +170,7 @@ body {
     align-items: center;
     height: 25px;
     flex-shrink: 0;
-    /*border: 0.5px solid #27272F;*/
+    /*border: 0.2px solid #27272F;*/
 }
 .title p {
     margin: 0 0 0 13px;
