@@ -38,12 +38,14 @@ body {
     background-color: #0F1014;
 }
 .right-sidebar {
+    display: flex;
+    flex-direction: column;
     border-left: 0.1px solid #27272F;
     background-color: #13141A;
 }
 
 .content {
-    /*border: 0.2px solid blue;*/
+    /*border: 0.2px solid blue*/
 }
 #content1, #content3, #content4 {
     flex-shrink: 0;
@@ -177,4 +179,35 @@ body {
     font-size: 11px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #3F3F46;
+}
+
+/*RIGHT SIDEBAR*/
+.content-right {
+    border: 1px solid blue;
+}
+#task {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+}
+.detail-title {
+    font-size: 17px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #FAFAFA;
+    margin: 0 0 0 13px;
+}
+#subtasks {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+#subtasks::-webkit-scrollbar {
+    display: none;
+}
+#notes {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
 }
