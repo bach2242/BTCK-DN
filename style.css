@@ -73,7 +73,7 @@ body {
     background-color: #27272F;
     border-left: 2px solid #2DD4BF;
 }
-.content-views .active {
+.content-views.active {
     background-color: #27272F;
     border-left: 2px solid #2DD4BF;
 }
@@ -83,8 +83,8 @@ body {
 .content-views p {
     margin: 0;
     font-size: 11px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #3F3F46;
+    font-family: monospace;
+    color: #A1A1AA;
     padding-left: 20px;
 }
 #content2 {
@@ -111,8 +111,8 @@ body {
 .content-projects p {
     margin: 0;
     font-size: 11px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #3F3F46;
+    font-family: monospace;
+    color: #A1A1AA;
     padding-left: 20px;
 }
 .content-projects:hover {
@@ -122,7 +122,7 @@ body {
 .content-projects:hover p {
     color: #D4D4D8;
 }
-.content-projects .active {
+.content-projects.active {
     background-color: #27272F;
     border-left: 2px solid #2DD4BF;
 }
@@ -130,7 +130,7 @@ body {
     margin-top: auto;
     padding: 10px;
     font-size: 11px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: monospace;
     color: #3F3F46;
     cursor: pointer;
     border-left: 2px solid transparent;
@@ -156,7 +156,7 @@ body {
     border: 1px solid #3F3F46;
     padding:  2px 8px;
     font-size: 12px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: monospace;
     color: #3F3F46;
     cursor: pointer;
 }
@@ -177,24 +177,43 @@ body {
 .title p {
     margin: 0 0 0 13px;
     font-size: 11px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: monospace;
     color: #3F3F46;
 }
 
 /*RIGHT SIDEBAR*/
 .content-right {
-    border: 1px solid blue;
+    /*order: 1px solid blue;*/
 }
 #task {
     display: flex;
     flex-direction: column;
-    height: 250px;
+    /*height: 250px;*/
+    flex-shrink: 0;
+    /*padding-bottom:  16px;*/
 }
 .detail-title {
     font-size: 17px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: monospace;
     color: #FAFAFA;
     margin: 0 0 0 13px;
+}
+.list-task {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 0px 13px;
+    /*border-top: 1px solid #27272F;*/
+}
+.content-task {
+    margin: 0;
+    border-bottom: 1px solid #27272F;
+}
+.content-task p {
+    margin: 0;
+    font-size: 11px;
+    font-family: monospace;
+    color: #52525B;
+    padding: 10px 0;
 }
 #subtasks {
     display: flex;
@@ -209,5 +228,56 @@ body {
 #notes {
     display: flex;
     flex-direction: column;
-    height: 200px;
+    padding: 0 16px 16px 16px;
+    gap: 16px;
+}
+.note-box {
+    border: 1px solid #27272F;
+    padding: 16px;
+    
+}
+.note-box p {
+    margin: 0;
+    font-size: 13px;
+    font-family: monospace;
+    color: #A1A1AA;
+    line-height: 1.6;
+}
+.note-actions {
+    display: flex;
+    gap: 12px;
+}
+.action-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #27272F;
+    padding: 12px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    gap: 8px;
+}
+.action-icon {
+    font-size: 16px;
+    color: #2DD4BF;
+    transition: all 0.3s ease;
+}
+.action-btn p {
+    margin: 0;
+    font-size: 11px;
+    font-family: monospace; 
+    font-weight: bold;
+    color: #A1A1AA;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+
+}
+.action-btn:hover {
+    background-color: #27272F;
+    border-color: #2DD4BF;
+}
+.action-btn:hover p {
+    color: #2DD4BF;
 }
