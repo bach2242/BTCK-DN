@@ -225,6 +225,104 @@ body {
 #subtasks::-webkit-scrollbar {
     display: none;
 }
+.subtask-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+}
+.subtask-title {
+    display: flex;
+    gap: 8px;
+    font: 11px monospace;
+    font-weight: bold;
+    color: #6b7280;
+    letter-spacing: 1px;
+}
+.subtask-title p {
+    margin: 0;
+}
+
+.progress-bg {
+    flex-grow: 1;
+    height: 4px;
+    background-color: #1F202A;
+    border-radius: 2px;
+}
+.progress-fill {
+    height: 100%;
+    background-color: #2DD4BF;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.subtask-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 16px ;
+}
+.subtask-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.checkbox {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #6b7280;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: transparent;
+    transition: all 0.2s ease;
+}
+.subtask-item p {
+    margin: 0;
+    font-size: 13px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #D4D4D8;
+    transition: all 0.2s ease;
+}
+
+
+.subtask-item.completed .checkbox {
+    background-color: #2DD4BF;
+    border-color: #2DD4BF;
+    color: #08090B; 
+}
+
+.subtask-item.completed p {
+    color: #6b7280; 
+    text-decoration: line-through; 
+}
+
+
+.subtask-item:hover .checkbox {
+    border-color: #2DD4BF;
+}
+
+
+
+.add-subtask-btn {
+    margin: 16px 16px 0 16px; /* Cách dòng cuối của list 16px */
+    font-size: 11px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #6b7280;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.add-subtask-btn:hover {
+    color: #D4D4D8; /* Sáng lên khi trỏ chuột */
+}
 #notes {
     display: flex;
     flex-direction: column;
