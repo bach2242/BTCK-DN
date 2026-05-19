@@ -14,13 +14,112 @@ body {
     /* background-color: #08090B; */
 }
 
+/* --- TOP SIDEBAR --- */
 .top-sidebar {
     display: flex;
     height: 44px;
-    border: 0.1px solid #27272F;
-    background-color: #08090B;
+    border: 0.1px solid #1a1b1f;
+    background-color: #0c0d10;
+    align-items: center;
+    padding: 0 16px;
+    gap: 16px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    font-family: 'JetBrains Mono', monospace;
+}
+.top-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+.accent-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #5eead4;
+    flex-shrink: 0;
+}
+.path {
+    color: #71717a;
+}
+.project-name {
+    color: #fafafa;
+    font-weight: 600;
+}
+.separator {
+    color: #3f3f46;
+}
+.branch-name {
+    color: #5eead4;
+}
+.btn-new-task {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #5eead4;
+    color: #08090b;
+    border: 1px solid #5eead4;
+    padding: 4px 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+.btn-new-task:hover {
+    background-color: #34d399;
+    border-color: #34d399;
+}
+.close-btn {
+    margin-left: 4px;
+}
+.top-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    color: #52525b;
+    margin-left: auto;
+}
+.btn-search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #13141a;
+    border: 1px solid #27272f;
+    color: #3f3f46;
+    padding: 4px 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.btn-search:hover {
+    border-color: #5eead4;
+}
+.search-icon {
+    color: #71717a;
+}
+.kbd-shortcut {
+    margin-left: 24px;
+    color: #52525b;
+    border: 1px solid #27272f;
+    padding: 1px 6px;
+    font-size: 10px;
+}
+.sync-status {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.sync-dot {
+    color: #5eead4;
 }
 
+/* --- MAIN LAYOUT --- */
 .main-sidebar {
     display: grid;
     border: 0.1px solid #27272F;
@@ -29,7 +128,6 @@ body {
 .left-sidebar {
     display: flex;
     flex-direction: column;
-    
     /*border: 0.1px solid #27272F;*/
     background-color: #0C0D10;
 }
@@ -44,17 +142,19 @@ body {
     background-color: #13141A;
 }
 
+/* --- LEFT SIDEBAR (VIEWS, PROJECTS, TAGS, STREAK) --- */
 .content {
     /*border: 0.2px solid blue*/
 }
 #content1, #content3, #content4 {
     flex-shrink: 0;
 }
+
+/* VIEWS */
 #content1 {
     height: 150px;
     display: flex;
     flex-direction: column;
-    
 }
 .list-content1 {
     display: flex;
@@ -65,8 +165,8 @@ body {
 .content-views {
     display: flex;
     padding: 8px 0 8px 13px;
-    cursor: pointer; /*đổi con trỏ khi chạm vào content*/
-    border-left: 1px solid transparent; /*tạo một đường viền trong suốt để tránh việc layout bị thay đổi khi hover*/
+    cursor: pointer;
+    border-left: 1px solid transparent; 
     transition: all 0.3s ease;
 }
 .content-views:hover {
@@ -87,6 +187,8 @@ body {
     color: #A1A1AA;
     padding-left: 20px;
 }
+
+/* PROJECTS */
 #content2 {
     display: flex;
     flex-direction: column;
@@ -104,7 +206,7 @@ body {
 .content-projects {
     display: flex;
     padding: 8px 0px 8px 13px;
-    cursor: pointer; /*đổi con trỏ khi chạm vào content*/
+    cursor: pointer; 
     border-left: 2px solid transparent;
     transition: all 0.3s ease;
 }
@@ -141,6 +243,8 @@ body {
     border-left: 2px solid #2DD4BF;
     color: #D4D4D8;
 }
+
+/* TAGS */
 #content3 {
     /*height: 150px;*/
     display: flex;
@@ -148,7 +252,7 @@ body {
 }
 .list-content3 {
     display: flex;
-    flex-wrap: wrap;/*cho pheps cac the tag tu dong xuong dong khi het cho ngang*/
+    flex-wrap: wrap;
     gap: 8px;
     padding: 8px 13px 16px 13px;
 }
@@ -163,10 +267,13 @@ body {
 .tag:hover {
     background-color: #2DD4BF;
 }
+
+/* STREAK */
 #content4 {
     height: 120px;
 }
 
+/* TITLE GENERAL */
 .title {
     display: flex;
     align-items: center;
@@ -181,40 +288,93 @@ body {
     color: #3F3F46;
 }
 
-/*RIGHT SIDEBAR*/
+
+/* --- RIGHT SIDEBAR --- */
 .content-right {
-    /*order: 1px solid blue;*/
+    
 }
+
+/* TASK SECTION */
 #task {
     display: flex;
     flex-direction: column;
-    /*height: 250px;*/
     flex-shrink: 0;
-    /*padding-bottom:  16px;*/
+    padding: 16px 16px 0 16px; 
+    gap: 12px; 
 }
+
+#task .title p {
+    margin: 0;
+}
+
 .detail-title {
-    font-size: 17px;
+    font-size: 18px;
     font-family: monospace;
     color: #FAFAFA;
-    margin: 0 0 0 13px;
+    margin: 0; 
+    font-weight: 600;
+    line-height: 1.4;
 }
+
+
 .list-task {
     display: flex;
     flex-direction: column;
-    padding: 0px 0px 0px 13px;
-    /*border-top: 1px solid #27272F;*/
+    padding: 0 16px; 
 }
-.content-task {
-    margin: 0;
-    border-bottom: 1px solid #27272F;
+
+
+.task-field {
+    display: grid;
+    grid-template-columns: 100px 1fr; 
+    align-items: center; 
+    padding: 12px 0; 
+    border-bottom: 1px solid #27272F; 
 }
-.content-task p {
+
+
+.task-field:last-child {
+    border-bottom: none;
+}
+
+.field-label {
     margin: 0;
-    font-size: 11px;
+    font-size: 10px;
     font-family: monospace;
     color: #52525B;
-    padding: 10px 0;
+    letter-spacing: 0.1em;
+    font-weight: 600;
 }
+.field-value {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-family: monospace;
+    color: #FAFAFA;
+}
+.badge {
+    color: #FAFAFA;
+    font-size: 12px;
+}
+.priority-high {
+    color: #EF4444 !important;
+    font-weight: 600;
+}
+.tags-value {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.small-tag {
+    border: 1px solid #3F3F46;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-family: monospace;
+    color: #3F3F46;
+}
+
+/* SUBTASKS SECTION */
 #subtasks {
     display: flex;
     flex-direction: column;
@@ -235,14 +395,12 @@ body {
     display: flex;
     gap: 8px;
     font: 11px monospace;
-    font-weight: bold;
-    color: #6b7280;
+    color: #3F3F46;
     letter-spacing: 1px;
 }
 .subtask-title p {
     margin: 0;
 }
-
 .progress-bg {
     flex-grow: 1;
     height: 4px;
@@ -255,7 +413,6 @@ body {
     border-radius: 2px;
     transition: width 0.3s ease;
 }
-
 .subtask-list {
     display: flex;
     flex-direction: column;
@@ -268,12 +425,10 @@ body {
     gap: 12px;
     cursor: pointer;
 }
-
 .checkbox {
     width: 14px;
     height: 14px;
-    border: 1px solid #6b7280;
-    border-radius: 2px;
+    border: 1px solid #3F3F46;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -285,44 +440,35 @@ body {
     margin: 0;
     font-size: 13px;
     font-family: monospace;
-    font-weight: bold;
     color: #D4D4D8;
     transition: all 0.2s ease;
 }
-
-
 .subtask-item.completed .checkbox {
     background-color: #2DD4BF;
     border-color: #2DD4BF;
     color: #08090B; 
 }
-
 .subtask-item.completed p {
-    color: #6b7280; 
+    color: #3F3F46; 
     text-decoration: line-through; 
 }
-
-
 .subtask-item:hover .checkbox {
     border-color: #2DD4BF;
 }
-
-
-
 .add-subtask-btn {
-    margin: 16px 16px 0 16px; /* Cách dòng cuối của list 16px */
+    margin: 16px 16px 0 16px; 
     font-size: 11px;
     font-family: monospace;
-    font-weight: bold;
-    color: #6b7280;
+    color: #3F3F46;
     letter-spacing: 1px;
     cursor: pointer;
     transition: color 0.2s ease;
 }
-
 .add-subtask-btn:hover {
-    color: #D4D4D8; /* Sáng lên khi trỏ chuột */
+    color: #D4D4D8; 
 }
+
+/* NOTES SECTION */
 #notes {
     display: flex;
     flex-direction: column;
@@ -332,7 +478,6 @@ body {
 .note-box {
     border: 1px solid #27272F;
     padding: 16px;
-    
 }
 .note-box p {
     margin: 0;
@@ -370,7 +515,6 @@ body {
     color: #A1A1AA;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-
 }
 .action-btn:hover {
     background-color: #27272F;

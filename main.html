@@ -9,7 +9,19 @@
 <body>
     <div class="main">
         <div class="top-sidebar">
-            
+            <div class="top-left">
+                <div class="accent-dot"></div>
+                <span class="path">~/</span>
+                <span class="project-name">focus.todo</span>
+                <span class="separator">—</span>
+                <span class="branch-name">main</span>
+            </div>
+            <div class="top-right">
+                <button class="btn-new-task">+ NEW TASK <span class="close-btn">✕</span></button>
+                <button class="btn-search"><span class="search-icon">$</span>search or run...<span class="kbd-shortcut">⌘K</span></button>
+                <span class="sync-status">SYNC <span class="sync-dot">●</span> 14:32</span>
+                <span class="version">v1.4.2</span>
+            </div>
         </div>
         <div class="main-sidebar">
             <div class="left-sidebar">
@@ -73,11 +85,35 @@
                         <p>Finish CS-241 problem set 04</p>
                     </div>
                     <div class="list-task">
-                        <div class="content-task"><p>STATUS</p></div>
-                        <div class="content-task"><p>PROJECT</p></div>
-                        <div class="content-task"><p>DUE</p></div>
-                        <div class="content-task"><p>PRIORITY</p></div>
-                        <div class="content-task"><p>TAGS</p></div>
+                        <div class="task-field">
+                            <p class="field-label">STATUS</p>
+                            <div class="field-value">
+                                <span class="badge">■</span>
+                                <span>ACTIVE</span>
+                            </div>
+                        </div>
+                        <div class="task-field">
+                            <p class="field-label">PROJECT</p>
+                            <div class="field-value">
+                                <span class="badge">■</span>
+                                <span>Algorithms</span>
+                            </div>
+                        </div>
+                        <div class="task-field">
+                            <p class="field-label">DUE</p>
+                            <div class="field-value">Today · 23:59</div>
+                        </div>
+                        <div class="task-field">
+                            <p class="field-label">PRIORITY</p>
+                            <div class="field-value priority-high">!!! HIGH</div>
+                        </div>
+                        <div class="task-field">
+                            <p class="field-label">TAGS</p>
+                            <div class="tags-value">
+                                <span class="small-tag">#hard</span>
+                                <span class="small-tag">#graded</span>
+                            </div>
+                        </div>
                     </div>
                     
                 </div>
