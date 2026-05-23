@@ -611,22 +611,7 @@ body {
     overflow: hidden;
 }
 
-.right-sidebar-footer {
-    flex-shrink: 0;
-    padding: 12px 20px 16px;
-    border-top: 1px solid #1f202a;
-    background-color: #12131a;
-}
-
 /* --- LEFT SIDEBAR (VIEWS, PROJECTS, TAGS, STREAK) --- */
-.left-sidebar .content {
-    border-bottom: 1px solid #1a1b1f;
-}
-
-.left-sidebar .content:last-child {
-    border-bottom: none;
-}
-
 #content1, #content3, #content4 {
     flex-shrink: 0;
 }
@@ -1171,30 +1156,34 @@ body {
 }
 
 
-/* 3. NOTES SECTION */
+/* 3. NOTES + ACTIONS */
 #notes {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    padding: 16px 22px 8px;
-    gap: 10px;
+    padding: 16px 22px 20px;
+}
+
+#notes .title {
+    height: auto;
+    margin-bottom: 10px;
 }
 
 #notes .title p {
+    margin: 0;
     font-size: 10px;
     font-family: 'JetBrains Mono', monospace;
-    color: #52525B;
+    color: #52525b;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     font-weight: 600;
-    margin: 0;
 }
 
 .note-box {
-    border: 1px solid #1e2433;
-    padding: 14px;
-    background-color: #0f131c;
-    border-radius: 2px;
+    border: 1px solid #27272f;
+    padding: 12px 14px;
+    background-color: transparent;
+    border-radius: 0;
 }
 
 .note-box p {
@@ -1202,10 +1191,16 @@ body {
     font-size: 12px;
     font-family: 'JetBrains Mono', monospace;
     color: #A1A1AA;
-    line-height: 1.5;
+    line-height: 1.55;
 }
 
-.right-sidebar-footer .note-actions {
+.notes-divider {
+    height: 1px;
+    margin: 14px 0 12px;
+    background-color: #1f202a;
+}
+
+#notes .note-actions {
     display: flex;
     gap: 8px;
     margin: 0;
@@ -1218,19 +1213,20 @@ body {
     align-items: center;
     justify-content: center;
     border: 1px solid #27272f;
-    padding: 14px 8px;
-    min-height: 72px;
+    padding: 12px 6px;
+    min-height: 68px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
     gap: 8px;
-    background-color: #0c0d12;
-    border-radius: 2px;
+    background-color: transparent;
+    border-radius: 0;
 }
 
 .action-icon {
-    font-size: 14px;
-    color: #2DD4BF; /* Icon màu cyan theo chuẩn ảnh */
-    transition: all 0.2s ease;
+    font-size: 15px;
+    color: #5eead4;
+    line-height: 1;
+    transition: color 0.2s ease;
 }
 
 .action-btn p {
@@ -1238,20 +1234,23 @@ body {
     font-size: 10px;
     font-family: 'JetBrains Mono', monospace;
     font-weight: 600;
-    color: #71717A;
+    color: #52525b;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    transition: all 0.2s ease;
+    transition: color 0.2s ease;
 }
 
 .action-btn:hover {
-    background-color: #1F202A;
-    border-color: #2DD4BF;
+    background-color: #18191f;
+    border-color: #3f3f46;
 }
 
-.action-btn:hover .action-icon,
+.action-btn:hover .action-icon {
+    color: #5eead4;
+}
+
 .action-btn:hover p {
-    color: #2DD4BF;
+    color: #71717a;
 }
 
 /* --- NEW TASK MODAL --- */
