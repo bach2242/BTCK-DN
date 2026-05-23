@@ -291,7 +291,9 @@ body {
 
 /* --- RIGHT SIDEBAR --- */
 .content-right {
-    
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #27272F;
 }
 
 /* TASK SECTION */
@@ -299,39 +301,39 @@ body {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    padding: 16px 16px 0 16px; 
-    gap: 12px; 
+    padding: 16px;
+    gap: 16px;
 }
 
 #task .title p {
     margin: 0;
+    font-size: 10px;
+    color: #52525B;
 }
 
 .detail-title {
-    font-size: 18px;
+    font-size: 16px;
     font-family: monospace;
     color: #FAFAFA;
-    margin: 0; 
+    margin: 0 0 12px 0;
     font-weight: 600;
     line-height: 1.4;
 }
 
-
 .list-task {
     display: flex;
     flex-direction: column;
-    padding: 0 16px; 
+    gap: 0;
 }
-
 
 .task-field {
-    display: grid;
-    grid-template-columns: 100px 1fr; 
-    align-items: center; 
-    padding: 12px 0; 
-    border-bottom: 1px solid #27272F; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #1F202A;
+    font-size: 12px;
 }
-
 
 .task-field:last-child {
     border-bottom: none;
@@ -342,92 +344,111 @@ body {
     font-size: 10px;
     font-family: monospace;
     color: #52525B;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     font-weight: 600;
+    text-transform: uppercase;
 }
+
 .field-value {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    font-family: monospace;
-    color: #FAFAFA;
-}
-.badge {
-    color: #FAFAFA;
+    gap: 6px;
     font-size: 12px;
+    font-family: monospace;
+    color: #D4D4D8;
 }
+
+.badge {
+    width: 8px;
+    height: 8px;
+    border-radius: 1px;
+    display: inline-block;
+    background-color: #2DD4BF;
+}
+
 .priority-high {
     color: #EF4444 !important;
     font-weight: 600;
 }
+
 .tags-value {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: wrap;
 }
+
 .small-tag {
     border: 1px solid #3F3F46;
-    padding: 4px 8px;
-    font-size: 11px;
+    padding: 3px 6px;
+    font-size: 10px;
     font-family: monospace;
-    color: #3F3F46;
+    color: #71717A;
 }
 
 /* SUBTASKS SECTION */
 #subtasks {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    overflow-y: auto;
-    scrollbar-width: none;
+    padding: 16px;
+    gap: 16px;
 }
-#subtasks::-webkit-scrollbar {
-    display: none;
-}
+
 .subtask-header {
     display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 16px;
+    flex-direction: column;
+    gap: 10px;
 }
+
 .subtask-title {
     display: flex;
     gap: 8px;
-    font: 11px monospace;
-    color: #3F3F46;
-    letter-spacing: 1px;
+    font: 10px monospace;
+    color: #52525B;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
 }
+
 .subtask-title p {
     margin: 0;
 }
-.progress-bg {
-    flex-grow: 1;
-    height: 4px;
-    background-color: #1F202A;
-    border-radius: 2px;
+
+.subtask-count {
+    color: #71717A;
+    font-weight: normal;
 }
+
+.progress-bg {
+    height: 3px;
+    background-color: #1F202A;
+    border-radius: 1.5px;
+    overflow: hidden;
+}
+
 .progress-fill {
     height: 100%;
     background-color: #2DD4BF;
-    border-radius: 2px;
+    border-radius: 1.5px;
     transition: width 0.3s ease;
 }
+
 .subtask-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 0 16px ;
+    gap: 10px;
 }
+
 .subtask-item {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     cursor: pointer;
 }
+
 .checkbox {
     width: 14px;
     height: 14px;
+    min-width: 14px;
     border: 1px solid #3F3F46;
     display: flex;
     align-items: center;
@@ -435,61 +456,85 @@ body {
     font-size: 10px;
     color: transparent;
     transition: all 0.2s ease;
+    background-color: transparent;
 }
+
 .subtask-item p {
     margin: 0;
-    font-size: 13px;
+    font-size: 12px;
     font-family: monospace;
     color: #D4D4D8;
     transition: all 0.2s ease;
 }
+
 .subtask-item.completed .checkbox {
     background-color: #2DD4BF;
     border-color: #2DD4BF;
-    color: #08090B; 
+    color: #08090B;
 }
+
 .subtask-item.completed p {
-    color: #3F3F46; 
-    text-decoration: line-through; 
+    color: #71717A;
+    text-decoration: line-through;
 }
+
 .subtask-item:hover .checkbox {
     border-color: #2DD4BF;
 }
+
 .add-subtask-btn {
-    margin: 16px 16px 0 16px; 
     font-size: 11px;
     font-family: monospace;
-    color: #3F3F46;
-    letter-spacing: 1px;
+    color: #52525B;
+    letter-spacing: 0.08em;
     cursor: pointer;
     transition: color 0.2s ease;
+    text-transform: uppercase;
+    font-weight: 600;
 }
+
 .add-subtask-btn:hover {
-    color: #D4D4D8; 
+    color: #D4D4D8;
 }
 
 /* NOTES SECTION */
 #notes {
     display: flex;
     flex-direction: column;
-    padding: 0 16px 16px 16px;
-    gap: 16px;
-}
-.note-box {
-    border: 1px solid #27272F;
     padding: 16px;
+    gap: 12px;
+    border-top: 1px solid #27272F;
 }
+
+#notes .title p {
+    font-size: 10px;
+    color: #52525B;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.note-box {
+    border: 1px solid #1F202A;
+    padding: 12px;
+    background-color: #0F1014;
+}
+
 .note-box p {
     margin: 0;
-    font-size: 13px;
+    font-size: 12px;
     font-family: monospace;
     color: #A1A1AA;
-    line-height: 1.6;
+    line-height: 1.5;
 }
+
 .note-actions {
     display: flex;
-    gap: 12px;
+    gap: 8px;
+    margin-top: 8px;
 }
+
 .action-btn {
     flex: 1;
     display: flex;
@@ -497,29 +542,39 @@ body {
     align-items: center;
     justify-content: center;
     border: 1px solid #27272F;
-    padding: 12px 0;
+    padding: 10px 0;
     cursor: pointer;
-    transition: all 0.3s ease;
-    gap: 8px;
+    transition: all 0.2s ease;
+    gap: 6px;
+    background-color: transparent;
 }
+
 .action-icon {
-    font-size: 16px;
-    color: #2DD4BF;
-    transition: all 0.3s ease;
+    font-size: 14px;
+    color: #71717A;
+    transition: all 0.2s ease;
 }
+
 .action-btn p {
     margin: 0;
-    font-size: 11px;
-    font-family: monospace; 
-    font-weight: bold;
-    color: #A1A1AA;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
+    font-size: 10px;
+    font-family: monospace;
+    font-weight: 600;
+    color: #71717A;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
 }
+
 .action-btn:hover {
-    background-color: #27272F;
+    background-color: #1F202A;
     border-color: #2DD4BF;
 }
+
+.action-btn:hover .action-icon {
+    color: #2DD4BF;
+}
+
 .action-btn:hover p {
     color: #2DD4BF;
 }
