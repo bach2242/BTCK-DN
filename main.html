@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>focus.todo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,8 +20,8 @@
                 <span class="branch-name">main</span>
             </div>
             <div class="top-right">
-                <button class="btn-new-task">+ NEW TASK <span class="close-btn">✕</span></button>
-                <button class="btn-search"><span class="search-icon">$</span>search or run...<span class="kbd-shortcut">⌘K</span></button>
+                <button class="btn-new-task" id="btn-open-new-task" type="button">+ NEW TASK <span class="close-btn">✕</span></button>
+                <button class="btn-search" id="btn-open-command" type="button"><span class="search-icon">$</span>search or run...<span class="kbd-shortcut">⌘K</span></button>
                 <span class="sync-status">SYNC <span class="sync-dot">●</span> 14:32</span>
                 <span class="version">v1.4.2</span>
             </div>
@@ -30,10 +33,34 @@
                         <p>VIEWS</p>
                     </div>
                     <div class="list-content1">
-                        <div class="content-views"><p>Today</p></div>
-                        <div class="content-views"><p>Upcoming</p></div>
-                        <div class="content-views"><p>Inbox</p></div>
-                        <div class="content-views"><p>Completed</p></div>
+                        <div class="content-views nav-item" data-nav="view" data-id="today">
+                            <span class="nav-label">
+                                <span class="view-icon" aria-hidden="true">◎</span>
+                                <p>Today</p>
+                            </span>
+                            <span class="nav-count">4</span>
+                        </div>
+                        <div class="content-views nav-item" data-nav="view" data-id="upcoming">
+                            <span class="nav-label">
+                                <span class="view-icon" aria-hidden="true">▸</span>
+                                <p>Upcoming</p>
+                            </span>
+                            <span class="nav-count">3</span>
+                        </div>
+                        <div class="content-views nav-item" data-nav="view" data-id="inbox">
+                            <span class="nav-label">
+                                <span class="view-icon" aria-hidden="true">▤</span>
+                                <p>Inbox</p>
+                            </span>
+                            <span class="nav-count">8</span>
+                        </div>
+                        <div class="content-views nav-item" data-nav="view" data-id="completed">
+                            <span class="nav-label">
+                                <span class="view-icon" aria-hidden="true">✓</span>
+                                <p>Completed</p>
+                            </span>
+                            <span class="nav-count">142</span>
+                        </div>
                     </div>
                         
                 </div>
@@ -42,46 +69,139 @@
                         <p>PROJECTS</p>
                     </div>
                     <div class="list-content2">
-                        <div class="content-projects"><p>Algorithms</p></div>
-                        <div class="content-projects"><p>Distributed</p></div>
-                        <div class="content-projects"><p>OS</p></div>
-                        <div class="content-projects"><p>Capstone</p></div>
-                        <div class="content-projects"><p>Career</p></div>
-                        <div class="content-projects"><p>Personal</p></div>
+                        <div class="content-projects nav-item active" data-nav="project" data-id="Algorithms">
+                            <span class="nav-label"><span class="sidebar-dot dot-purple"></span><p>Algorithms</p></span>
+                            <span class="nav-count">4</span>
+                        </div>
+                        <div class="content-projects nav-item" data-nav="project" data-id="Distributed">
+                            <span class="nav-label"><span class="sidebar-dot dot-blue"></span><p>Distributed</p></span>
+                            <span class="nav-count">2</span>
+                        </div>
+                        <div class="content-projects nav-item" data-nav="project" data-id="OS">
+                            <span class="nav-label"><span class="sidebar-dot dot-green"></span><p>OS</p></span>
+                            <span class="nav-count">3</span>
+                        </div>
+                        <div class="content-projects nav-item" data-nav="project" data-id="Capstone">
+                            <span class="nav-label"><span class="sidebar-dot dot-orange"></span><p>Capstone</p></span>
+                            <span class="nav-count">2</span>
+                        </div>
+                        <div class="content-projects nav-item" data-nav="project" data-id="Career">
+                            <span class="nav-label"><span class="sidebar-dot dot-yellow"></span><p>Career</p></span>
+                            <span class="nav-count">2</span>
+                        </div>
+                        <div class="content-projects nav-item" data-nav="project" data-id="Personal">
+                            <span class="nav-label"><span class="sidebar-dot dot-pink"></span><p>Personal</p></span>
+                            <span class="nav-count">1</span>
+                        </div>
                     </div>
-                    <div class="new-content2">+ NEW PROJECT</div>
+                    <div class="new-content2" tabindex="0">+ NEW PROJECT</div>
                 </div>
                 <div class="content" id="content3">
                     <div class="title">
                         <p>TAGS</p>
                     </div>
                     <div class="list-content3">
-                        <div class="tag">#hard</div>
-                        <div class="tag">#graded</div>
-                        <div class="tag">#reading</div>
-                        <div class="tag">#meeting</div>
-                        <div class="tag">#team</div>
-                        <div class="tag">#lab</div>
-                        <div class="tag">#health</div>
-                        <div class="tag">#daily</div>
-                        <div class="tag">#internship</div>
-                        <div class="tag">#deadline</div>
-                        <div class="tag">#bill</div>
+                        <div class="tag nav-item" data-nav="tag" data-id="hard">#hard</div>
+                        <div class="tag nav-item active" data-nav="tag" data-id="graded">#graded</div>
+                        <div class="tag nav-item" data-nav="tag" data-id="reading">#reading</div>
+                        <div class="tag nav-item" data-nav="tag" data-id="meeting">#meeting</div>
+                        <div class="tag nav-item" data-nav="tag" data-id="team">#team</div>
+                        <div class="tag nav-item" data-nav="tag" data-id="lab">#lab</div>
+                        <div class="tag nav-item" data-nav="tag" data-id="health">#health</div>
+                        <div class="tag nav-item" data-nav="tag" data-id="daily">#daily</div>
+                        <div class="tag nav-item" data-nav="tag" data-id="internship">#internship</div>
+                        <div class="tag nav-item" data-nav="tag" data-id="deadline">#deadline</div>
+                        <div class="tag nav-item" data-nav="tag" data-id="bill">#bill</div>
                     </div>
                 </div>
                 <div class="content" id="content4">
-                    <div class="title">
-                        <p>STREAK</p>
+                    <div class="streak-header">
+                        <span class="streak-number">23</span>
+                        <span class="streak-text">DAY STREAK</span>
+                    </div>
+                    <div class="streak-chart">
+                        <div class="day-col">
+                            <div class="bar-bg"><div class="bar-fill" style="height: 100%;"></div></div>
+                            <p>M</p>
+                        </div>
+                        <div class="day-col">
+                            <div class="bar-bg"><div class="bar-fill" style="height: 100%;"></div></div>
+                            <p>T</p>
+                        </div>
+                        <div class="day-col">
+                            <div class="bar-bg"><div class="bar-fill" style="height: 100%;"></div></div>
+                            <p>W</p>
+                        </div>
+                        <div class="day-col">
+                            <div class="bar-bg"><div class="bar-fill partial" style="height: 60%;"></div></div>
+                            <p>T</p>
+                        </div>
+                        <div class="day-col">
+                            <div class="bar-bg"><div class="bar-fill" style="height: 100%;"></div></div>
+                            <p>F</p>
+                        </div>
+                        <div class="day-col">
+                            <div class="bar-bg"><div class="bar-fill partial" style="height: 30%;"></div></div>
+                            <p>S</p>
+                        </div>
+                        <div class="day-col">
+                            <div class="bar-bg"><div class="bar-fill" style="height: 100%;"></div></div>
+                            <p>S</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="menu"></div>
+            <div class="menu" id="menu-panel">
+                <header class="menu-header">
+                    <div class="menu-header-left">
+                        <span class="menu-prompt">&gt;</span>
+                        <h1 class="menu-title" id="menu-title">UPCOMING</h1>
+                        <span class="menu-stats" id="menu-stats">4/9 done · 27/35 this week</span>
+                    </div>
+                    <div class="view-switcher">
+                        <button class="view-btn active" type="button" data-view-mode="list">LIST</button>
+                        <button class="view-btn" type="button" data-view-mode="board">BOARD</button>
+                        <button class="view-btn" type="button" data-view-mode="cal">CAL</button>
+                    </div>
+                </header>
+
+                <div class="task-input-bar" id="task-input-bar" role="button" tabindex="0" aria-label="Add new task">
+                    <span class="input-plus">+</span>
+                    <input type="text" class="task-input" id="task-input" readonly placeholder="add task... use @project #tag !priority due:tomorrow" aria-label="Add task">
+                    <span class="input-kbd">N</span>
+                </div>
+
+                <div class="task-list-scroll" id="task-list"></div>
+
+                <footer class="menu-footer">
+                    <div class="week-progress">
+                        <span class="progress-label">WEEK PROGRESS</span>
+                        <span class="progress-stats">27/35</span>
+                        <span class="progress-pct">77%</span>
+                    </div>
+                    <div class="footer-bar-row">
+                        <div class="week-progress-bar">
+                            <div class="week-progress-fill" style="width: 77%;"></div>
+                        </div>
+                        <div class="activity-sparkline" aria-hidden="true">
+                            <span class="spark-bar" style="height: 40%;"></span>
+                            <span class="spark-bar" style="height: 70%;"></span>
+                            <span class="spark-bar" style="height: 55%;"></span>
+                            <span class="spark-bar" style="height: 90%;"></span>
+                            <span class="spark-bar" style="height: 65%;"></span>
+                            <span class="spark-bar" style="height: 30%;"></span>
+                            <span class="spark-bar active" style="height: 85%;"></span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
             <div class="right-sidebar">
+                <div class="right-sidebar-body">
                 <div class="content-right" id="task">
                     <div class="title">
                         <p>TASK / T1</p>
                     </div>
-                    <div class="detail-title">
+                    <div class="detail-title" id="detail-title">
                         <p>Finish CS-241 problem set 04</p>
                     </div>
                     <div class="list-task">
@@ -134,7 +254,7 @@
                         </div>
                         <div class="subtask-item completed">
                             <div class="checkbox">✓</div>
-                            <p>Write proof for Q3</p>
+                            <p>Write proof for Q5</p>
                         </div>
                         <div class="subtask-item">
                             <div class="checkbox"></div>
@@ -150,6 +270,9 @@
                     <div class="note-box">
                         <p>Office hours moved to 4pm. Submit via Gradescope.</p>
                     </div>
+                </div>
+                </div>
+                <div class="right-sidebar-footer">
                     <div class="note-actions">
                         <div class="action-btn">
                             <span class="action-icon">↵</span>
@@ -168,5 +291,95 @@
             </div>
         </div>
     </div>
+
+    <div class="modal-overlay" id="new-task-modal" hidden aria-hidden="true">
+        <div class="modal-backdrop" data-close-modal></div>
+        <div class="modal-panel" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+            <header class="modal-header">
+                <h2 class="modal-title" id="modal-title">+ NEW TASK</h2>
+                <button class="modal-esc" type="button" data-close-modal aria-label="Close">ESC</button>
+            </header>
+
+            <form class="modal-form" id="new-task-form">
+                <div class="form-field">
+                    <label class="form-label" for="nt-title">TITLE</label>
+                    <input class="form-input" type="text" id="nt-title" name="title" placeholder="What needs to be done?" autocomplete="off">
+                </div>
+
+                <div class="form-field">
+                    <label class="form-label" for="nt-notes">NOTES</label>
+                    <textarea class="form-textarea" id="nt-notes" name="notes" rows="3" placeholder="Add notes, links, requirements..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label class="form-label" for="nt-project">PROJECT</label>
+                        <div class="form-select-wrap">
+                            <span class="select-dot dot-cyan" id="nt-project-dot"></span>
+                            <select class="form-select" id="nt-project" name="project">
+                                <option value="Algorithms" data-dot="dot-purple">Algorithms</option>
+                                <option value="Distributed" data-dot="dot-purple">Distributed</option>
+                                <option value="OS" data-dot="dot-green">OS</option>
+                                <option value="Capstone" data-dot="dot-orange">Capstone</option>
+                                <option value="Career" data-dot="dot-yellow">Career</option>
+                                <option value="Personal" data-dot="dot-pink">Personal</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="nt-due">DUE</label>
+                        <div class="form-due-wrap">
+                            <span class="due-icon">◷</span>
+                            <input class="form-input" type="text" id="nt-due" name="due" value="Today · 18:00">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <span class="form-label">PRIORITY</span>
+                    <div class="priority-group" role="group" aria-label="Priority">
+                        <button class="priority-btn" type="button" data-priority="NONE">NONE</button>
+                        <button class="priority-btn" type="button" data-priority="LOW">! LOW</button>
+                        <button class="priority-btn active" type="button" data-priority="MED">!! MED</button>
+                        <button class="priority-btn" type="button" data-priority="HIGH">!!! HIGH</button>
+                    </div>
+                    <input type="hidden" name="priority" id="nt-priority" value="MED">
+                </div>
+
+                <div class="form-field">
+                    <label class="form-label" for="nt-tags">TAGS</label>
+                    <input class="form-input" type="text" id="nt-tags" name="tags" placeholder="+ add tag">
+                </div>
+
+                <div class="form-reminder">
+                    <span class="reminder-icon">🔔</span>
+                    <span class="reminder-text">Remind me 1 hour before</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="nt-reminder" name="reminder">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <footer class="modal-footer">
+                    <button class="modal-btn modal-btn-cancel" type="button" data-close-modal>CANCEL</button>
+                    <button class="modal-btn modal-btn-create" type="submit">CREATE TASK <span class="create-kbd">↵</span></button>
+                </footer>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay command-overlay" id="command-palette" hidden aria-hidden="true">
+        <div class="modal-backdrop" data-close-command></div>
+        <div class="command-panel" role="dialog" aria-label="Command palette" aria-modal="true">
+            <header class="command-header">
+                <span class="command-prompt">$</span>
+                <input type="text" class="command-input" id="command-input" placeholder="search or run command..." autocomplete="off" spellcheck="false">
+                <button class="modal-esc" type="button" data-close-command aria-label="Close">ESC</button>
+            </header>
+            <ul class="command-list" id="command-list"></ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
